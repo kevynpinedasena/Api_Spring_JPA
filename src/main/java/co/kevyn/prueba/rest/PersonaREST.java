@@ -26,6 +26,8 @@ public class PersonaREST {
 	
 	//metodos http - SERVIDOR AL SERVIDOR
 	
+	//http://localhost:8080/personas
+	
 	@PostMapping("/guardar")
 	public void guardarPersona(@RequestBody Persona miPersona) {
 		miPersonaDao.save(miPersona);
