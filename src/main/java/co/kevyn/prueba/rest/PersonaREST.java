@@ -1,6 +1,7 @@
 package co.kevyn.prueba.rest;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -31,6 +32,11 @@ public class PersonaREST {
 	@PostMapping("/guardar")
 	public void guardarPersona(@RequestBody Persona miPersona) {
 		miPersonaDao.save(miPersona);
+	}
+	
+	@GetMapping("persona/{id}")
+	public Optional<Persona> consultarPersonaId(@PathVariable("id") Integer id) {
+		return miPersonaDao.findById(id);
 	}
 	
 	@GetMapping("/listaPersona")
